@@ -1,4 +1,3 @@
-
 fs = require 'fs'
 events = require 'events'
 assert = require 'assert'
@@ -6,7 +5,7 @@ async = require 'async'
 
 
 ENOENT = 2
-ENOTDIR = 20
+ENOTDIR = [20, 27]
 
 
 class Paths
@@ -86,14 +85,19 @@ exports.StatWatcher = class StatWatcher extends events.EventEmitter
       if err
         
         # file deleted
-        if err.errno == ENOENT
+        if err.errno is ENOENT
           if last_mtime
             @emit 'fileDeleted', path
             delete @path_mtime[path]
         
         # error
         else
-          throw err
+          # Temporary files created by TextMate with deferred savings
+          if err.code is 'ENOENT' and err.errno is 34
+            _name = require('path').basename(err.path)
+            _name.indexOf('.') is 0 and /^\.\w+?\.\w+?$/.test(_name.trim())
+          else
+            throw err
       
       else
         
@@ -139,8 +143,9 @@ _pathsIn = (path, paths, callback) ->
   fs.readdir path, (err, files) ->
     
     # Case: file
-    if err and err.errno == ENOTDIR
-      paths.push path
+    if err and ENOTDIR.indexOf(err.errno) isnt -1
+      if err.errno <= 20
+        paths.push path
       return callback()
     
     # Case: error
