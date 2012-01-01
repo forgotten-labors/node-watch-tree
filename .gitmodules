@@ -1,3 +1,6 @@
 [submodule "pkg"]
       path = pkg
       url = git@github.com:forgotten-labors/watch-tree-dev-pkgs.git
+[submodule "packages"]
+	path = packages
+	url = git@github.com:forgotten-labors/watch-tree-dev-pkgs.git
