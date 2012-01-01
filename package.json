@@ -1,9 +1,9 @@
 {
-    "name": "watch-tree",
-    "version": "0.1.1",
+    "name": "fl-watch-tree",
+    "version": "0.1.1-2",
 
-    "description": "Yet another library for watching FS trees. Includes a JSON-on-stdout command-line tool and {filePreexisted,allPreexistingFilesReported} events.",
-    "url": "https://github.com/tafa/node-watch-tree",
+    "description": "Forked and improved version of Andrew Schaaf's watch-tree.",
+    "url": "https://github.com/forgotten-labors/node-watch-tree",
 
     "main": "lib/watch-tree.js",
     "bin": {
@@ -19,9 +19,10 @@
     },
 
     "author": "Andrew Schaaf <andrew@andrewschaaf.com>",
+    "contributors": ["Alexander 'yumitsu' Zinchenko <yumitsu@mouseed.com> (https://github.com/yumitsu/)", "Forgotten Labors Initiative <forlab-public@mouseed.com> (https://github.com/forgotten-labors)"],
 
     "repository": {
         "type": "git",
-        "url": "git://github.com/tafa/node-watch-tree.git"
+        "url": "git://github.com/forgotten-labors/node-watch-tree.git"
     }
 }
