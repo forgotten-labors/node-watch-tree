@@ -12,7 +12,7 @@ Your code won't notice the difference when that happens, but your battery life m
 
 ## Installing
 <pre>
-npm install watch-tree
+npm install fl-watch-tree
 </pre>
 
 ## Command-line tool
@@ -85,7 +85,7 @@ watcher.on('fileDeleted', function(path) {
 ## Developing
 <pre>
 # Install
-git clone https://github.com/tafa/node-watch-tree.git; cd node-watch-tree
+git clone git://github.com/forgotten-labors/node-watch-tree.git; cd node-watch-tree
 npm link
 
 # Develop
