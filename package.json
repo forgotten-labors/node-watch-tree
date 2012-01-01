@@ -1,28 +1,33 @@
 {
-    "name": "fl-watch-tree",
-    "version": "0.1.1-2",
+  "name": "fl-watch-tree",
+  "description": "Forked and improved version of Andrew Schaaf's watch-tree.",
+  "author": "Andrew Schaaf <andrew@andrewschaaf.com>",
+  "contributors": ["Alexander 'yumitsu' Zinchenko <yumitsu@mouseed.com> (https://github.com/yumitsu/)", "Forgotten Labors Initiative <forlab-public@mouseed.com> (https://github.com/forgotten-labors)"],
+  "homepage": "http://forgotten-labors.github.com/node-watch-tree",
+  "version": "0.1.1-4-alpha1",
 
-    "description": "Forked and improved version of Andrew Schaaf's watch-tree.",
-    "url": "https://github.com/forgotten-labors/node-watch-tree",
+  "main": "lib/watch-tree.js",
+  "bin": {
+    "watch-tree": "bin/watch-tree"
+  },
+  
+  "files": ["Cakefile", "index.js", "lib/", "src/", "bin/", "package.json", "README.md", "LICENSE.txt", ".gitignore", ".npmignore"],
 
-    "main": "lib/watch-tree.js",
-    "bin": {
-        "watch-tree": "bin/watch-tree"
-    },
+  "dependencies": {
+    "optimist": ">=0.1.2",
+    "async": ">=0.1.7",
+    "underscore": ">=1.1.4",
+    "coffee-script": ">=1.0.0",
+    "async_testing": ">=0.3.2"
+  },
 
-    "dependencies": {
-        "optimist": ">=0.1.2",
-        "async": ">=0.1.7",
-        "underscore": ">=1.1.4",
-        "coffee-script": ">=1.0.0",
-        "async_testing": ">=0.3.2"
-    },
-
-    "author": "Andrew Schaaf <andrew@andrewschaaf.com>",
-    "contributors": ["Alexander 'yumitsu' Zinchenko <yumitsu@mouseed.com> (https://github.com/yumitsu/)", "Forgotten Labors Initiative <forlab-public@mouseed.com> (https://github.com/forgotten-labors)"],
-
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/forgotten-labors/node-watch-tree.git"
-    }
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/forgotten-labors/node-watch-tree.git"
+  },
+  
+  "bugs": {
+    "url": "https://github.com/forgotten-labors/node-watch-tree/issues",
+    "email": "forlab-public@mouseed.com"
+  }
 }

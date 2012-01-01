@@ -95,7 +95,9 @@ exports.StatWatcher = class StatWatcher extends events.EventEmitter
           # Temporary files created by TextMate with deferred savings
           if err.code is 'ENOENT' and err.errno is 34
             _name = require('path').basename(err.path)
-            _name.indexOf('.') is 0 and /^\.\w+?\.\w+?$/.test(_name.trim())
+            if _name.indexOf('.') is 0 and /^\.\w+?\.\w+?$/.test(_name.trim()) is true
+              console.log(_name)
+              delete @path_mtime[path]
           else
             throw err
       
