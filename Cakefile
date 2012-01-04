@@ -2,7 +2,7 @@ fs   = require 'fs'
 path = require 'path'
 util = require 'util'
 {exec} = require 'child_process'
-
+  
 option '-p', '--package [version]', 'Build provided version, according to npm\'s pack(1) command.'
 
 task 'test', 'run tests', () ->
@@ -28,18 +28,18 @@ task 'pack', 'Pack files into .tgz package', (opts) ->
       "Building package from #{package}..."
   
   
-  fs.mkdirSync('pkg', 0755) unless path.existsSync('pkg')
+  fs.mkdirSync('packages', 0755) unless path.existsSync('packages')
   files = fs.readdirSync(process.cwd()).filter (e, i, a) ->
     e if path.extname(e) is '.tgz'
   
   for file in files
-    fs.renameSync(path.resolve(file), path.resolve(process.cwd(), "./pkg/#{file}"))
+    fs.renameSync(path.resolve(file), path.resolve(process.cwd(), "./packages/#{file}"))
     
-  watch = require('./lib/watch-tree').watchTree(process.cwd(), {'ignore': './pkg', 'match': /watch\-tree/})
+  watch = require('./lib/watch-tree').watchTree(process.cwd(), {'ignore': './packages', 'match': /watch\-tree/})
   watch.on 'fileCreated', (p, s) ->  
     if path.extname(p) is '.tgz'
       filename = path.relative(process.cwd(), p)
-      fs.renameSync(path.resolve(filename), path.resolve(process.cwd(), "pkg/#{filename}"))
+      fs.renameSync(path.resolve(filename), path.resolve(process.cwd(), "packages/#{filename}"))
       watch.removeAllListeners('fileCreated')
       console.timeEnd opts.arguments[0]
       process.exit(0)
