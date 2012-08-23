@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/forgotten-labors/node-watch-tree.png)](http://travis-ci.org/forgotten-labors/node-watch-tree)
 
 
 ## watch-tree
