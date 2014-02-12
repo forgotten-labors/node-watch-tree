@@ -28,7 +28,7 @@ task 'pack', 'Pack files into .tgz package', (opts) ->
       "Building package from #{package}..."
   
   
-  fs.mkdirSync('packages', 0755) unless path.existsSync('packages')
+  fs.mkdirSync('packages', 0755) unless fs.existsSync('packages')
   files = fs.readdirSync(process.cwd()).filter (e, i, a) ->
     e if path.extname(e) is '.tgz'
   
